@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <script>
+        function validateForm(){
+        var names=["harini","sahana","kavya"];  
+	username = document.myform.uname.value;
+	password = document.myform.pass.value;
+    number = document.myform.number.value;
+    email=document.myform.email.value;
+    var passw=  ("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(.{8,})");
+    var em= ("^(?=.*[a-z][0-9])+@(?=.*[a-z])");
+	if(username ==""||username.length<5||username.length>15){
+		alert("enter your name");
+        document.myform.uname.value="";
+		document.myform.uname.focus();   
+	}
+     else if (password ==""||(!password.match(passw))){
+		alert("enter your password and it should contain Alphabetes, numbers and  special characters");
+		document.myform.pass.value="";
+		document.myform.pass.focus();
+	}
+        else if (email ==""){
+		alert("enter your email-id");
+		document.myform.email.value="";
+		document.myform.email.focus();
+    }
+    else if (number ==""|| number.length>10){
+		alert("enter valid number");
+		document.myform.number.value="";
+		document.myform.number.focus();
+    }
+    else{
+        for (i=0;i<names.length;i++)
+        { 
+            if(username == names[i]) 
+            {
+                alert("Welcome "+username);
+                document.myform.value();
+            }
+        }
+		
+		document.getElementById("myid").innerHTML="Registration Successfull";   
+	}   
+}
+
+    </script>
+</head>
+<body>
+    <form action="" method="GET" name="myform" >
+        <h1> Registration Form</h1>
+        <table>
+            <tr>
+                <td>
+                   Name</td><td colspan="2"><input type="text" name="uname"  ><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                     Password </td><td colspan="2"><input type="password" name="pass" ><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Email-ID </td><td colspan="2"><input type="email" name="email" ><br>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   Phone number </td><td colspan="2"><input type="number"  name="number" ><br>
+                </td>
+            </tr>
+                        <tr><td>
+            <input type="button" value="Register" onclick="validateForm()" >
+            </td></tr>
+        </table></br>
+        <div > <span id="myid"></span></div>
+    </form>
+</body>
+</html>
