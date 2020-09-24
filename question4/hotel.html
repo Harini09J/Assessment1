@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+          function ajaxFunction(){
+		ajaxRequest = new XMLHttpRequest();   // opera ,mozilla
+        // target = document.getElementById("userid"); 
+        var url = "http://localhost:3000/hotelbycity"; 
+        ajaxRequest.open("GET", url, true); 
+        ajaxRequest.send(null); 
+        ajaxRequest.onreadystatechange = processRequest;
+      }
+ function processRequest() {
+  if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) { 
+      document.getElementById("myid").innerHTML=ajaxRequest.responseText;
+  }
+ }
+ 
+    </script>
+</head>
+<body>
+    <form action= "http://localhost:3000/listofhotels"  method="GET">
+    
+       Click To View Hotels: <input type="submit" name="listOfHotels" value="listofhotels" ><br>
+    </form>
+
+<br>
+    <form action="http://localhost:3000/hotelbycity" method="GET">
+    Enter City:<input type="text" name="city">
+  
+        <input type="submit" name="hotelsByCity" value="hotelbycity"><br>
+    </form>
+
+<br>
+
+<form action="http://localhost:3000/hotelbytype" method="GET">
+    <select  name="type" >
+    <option selected="" value="default">---hotels by type---</option>
+    <option value="nonveg" >nonveg</option>
+    <option value="veg" >veg</option>
+    <input type="submit" value="search">
+    </select>
+    </form>
+
+    <br><br>
+<form action="http://localhost:3000/hotelbycuisine" method="GET">
+    <select  name="cuisine" >
+        <option selected="" value="default">---hotels by cuisine---</option>
+        <option value="Indian">Indian</option>
+        <option value="chineese">chineese</option>
+        <option value="northindian">North Indian</option>
+       
+        <input type="submit" value="search">
+        </select>
+</form>
+    
+<div id="print"></div>
+
+</body>
+</html>

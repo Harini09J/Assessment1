@@ -1,0 +1,21 @@
+[{
+    "name":"Guru Prasad",
+     "city":"Mysore", 
+     "type":"veg",
+     "cuisine":[
+         "indian","chineese","italian"]
+     },
+     {
+        "name":"Apoorva",
+        "city":"bangalore", 
+        "type":"nonveg",
+        "cuisine":[
+            "indian","chineese","italian"]
+     },
+     {
+        "name":"Mahesh Prasad",
+        "city":"Mysore", 
+        "type":"veg",
+        "cuisine":[
+            "indian","italian"]
+     }]
